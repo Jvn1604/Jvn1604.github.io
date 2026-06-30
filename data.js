@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   JVN_04 · DETAIL VIEW DATA + ROUTING
+   Jeeven · DETAIL VIEW DATA + ROUTING
    ═══════════════════════════════════════════════════════════════
    Edit any entry below to update its detail page.
    Add new entries by following the same shape.
@@ -17,7 +17,7 @@
    See ASSETS_STRUCTURE.md for the full naming convention.
    ═══════════════════════════════════════════════════════════════ */
 
-window.JVN_DETAILS = {
+window.JEEVEN_DETAILS = {
 
   /* ╔══ PROJECTS ══════════════════════════════════════════════ */
 
@@ -450,7 +450,7 @@ window.JVN_DETAILS = {
 
 /* ─────────── DETAIL VIEW RENDERER + ROUTER ─────────── */
 (function() {
-  const DETAILS = window.JVN_DETAILS;
+  const DETAILS = window.JEEVEN_DETAILS;
   const view    = document.getElementById('detail-view');
   if (!view) return;
 
@@ -519,7 +519,7 @@ window.JVN_DETAILS = {
     stageEl.innerHTML += `
       <div class="dv-stage-hud-tl">REC ●</div>
       <div class="dv-stage-hud-tr">MEDIA // ${item.type.toUpperCase()}</div>
-      <div class="dv-stage-hud-br">JVN_04</div>`;
+      <div class="dv-stage-hud-br">Jeeven</div>`;
     captionEl.textContent = item.caption || '';
   }
 
