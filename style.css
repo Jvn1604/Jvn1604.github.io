@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   JVN_04 · CYBERPUNK PORTFOLIO · style.css
+   Jeeven · CYBERPUNK PORTFOLIO · style.css
    ═══════════════════════════════════════════════════════════════ */
 
 /* ── RESET ─────────────────────────────────────────────────── */
@@ -3674,3 +3674,251 @@ body.konami-active::after {
   .dv-hero-section, .dv-main, .dv-sections { padding-left: 1rem; padding-right: 1rem; }
   .dv-info { padding-left: 0; border-left: none; }
 }
+
+/* ╔═══════════════════════════════════════════════════════════╗
+   ║  AI / LLM STACK CARD                                      ║
+   ╚═══════════════════════════════════════════════════════════╝ */
+.stack-card-ai {
+  border-color: var(--cp-yellow);
+  background: linear-gradient(135deg, rgba(252, 238, 10, 0.06), transparent 70%), var(--panel);
+  position: relative;
+  box-shadow: 0 0 0 1px rgba(252, 238, 10, 0.08), 0 0 30px rgba(252, 238, 10, 0.04);
+}
+.stack-card-ai::before {
+  content: 'AI/ML';
+  position: absolute;
+  top: -1px; right: 0;
+  font: 700 0.62rem var(--mono);
+  letter-spacing: 0.18em;
+  padding: 0.2rem 0.55rem;
+  background: var(--cp-yellow);
+  color: #0A0A0A;
+}
+.stack-card-ai .stack-title { color: var(--cp-yellow); }
+.stack-hint {
+  font: 0.72rem var(--mono);
+  color: var(--muted);
+  margin-top: 0.6rem;
+  padding-top: 0.6rem;
+  border-top: 1px dashed var(--hairline);
+  letter-spacing: 0.02em;
+}
+.stack-pills span em {
+  color: var(--muted);
+  font-style: normal;
+  font-size: 0.65rem;
+  margin-left: 0.2rem;
+}
+[data-theme="light"] .stack-card-ai .stack-title { color: #6B5A00; }
+
+/* ╔═══════════════════════════════════════════════════════════╗
+   ║  MOBILE / PHONE OPTIMIZATIONS                             ║
+   ║  Focus: touch targets, readability, performance, comfort  ║
+   ╚═══════════════════════════════════════════════════════════╝ */
+
+/* tap highlight — kill the default blue flash on all interactive elements */
+a, button, input, textarea, select, [role="button"], [data-detail] {
+  -webkit-tap-highlight-color: rgba(252, 238, 10, 0.15);
+}
+
+/* anything that touches with a finger gets a comfortable hit area */
+@media (hover: none) and (pointer: coarse) {
+  /* min 44px touch target for nav links */
+  .nav-link { padding-top: 0.95rem; padding-bottom: 0.95rem; }
+
+  /* close buttons, prev/next, modal X — make them easier to hit */
+  .modal-close, .terminal-close, .dv-prev, .dv-next,
+  .stats-close, .hamburger { min-width: 44px; min-height: 44px; }
+
+  /* social icons need bigger hit areas */
+  .sidebar-socials a { width: 40px; height: 40px; }
+
+  /* form inputs — phone keyboards expect ~16px to avoid zoom */
+  .form-row input, .form-row textarea, .terminal-input { font-size: 16px !important; }
+}
+
+/* ═══ PHONE / NARROW (<=600px) ═══ */
+@media (max-width: 600px) {
+  /* turn off expensive effects on phones */
+  .hero-scanlines, .hero-stripes, .photo-scan, .featured-scan,
+  .terminal-screen::before { display: none; }
+  .photo-frame .photo-corner { display: none; }
+  .hero-meta-hire { animation: none; }
+  body { background-attachment: scroll; }
+
+  /* reduce blur radius — backdrop-filter blur is expensive on mobile GPUs */
+  .topbar, .dv-header, .dv-footer, .modal, .terminal-overlay,
+  .time-hud, .hero-stream { backdrop-filter: blur(4px) !important; -webkit-backdrop-filter: blur(4px) !important; }
+
+  /* tighter sectional padding */
+  .section, .section-alt { padding: 3rem 1.1rem !important; }
+  .hero { padding: 5rem 1.1rem 3.5rem !important; }
+  .dv-hero-section, .dv-main, .dv-sections { padding-left: 1rem; padding-right: 1rem; }
+
+  /* hero name caps at a comfortable mobile size */
+  .hero-name { font-size: clamp(2rem, 11vw, 2.8rem) !important; }
+  .hero-surname { font-size: clamp(1.2rem, 6vw, 1.6rem) !important; letter-spacing: 0.12em; }
+  .hero-bio { font-size: 0.96rem; }
+
+  /* hire banner stacks nicely */
+  .hero-meta-hire {
+    font-size: 0.7rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    padding: 0.5rem 0.7rem;
+  }
+  .hero-meta-hire .meta-window { font-size: 0.66rem; }
+  .hero-meta-hire .meta-link { padding: 0.18rem 0.5rem; font-size: 0.68rem; }
+
+  /* photo card slimmer + drop the photo-label rows that are HUD-style */
+  .photo-frame { max-width: 280px !important; margin: 0 auto; padding: 0.6rem; }
+  .photo-hud-bl, .photo-hud-br { font-size: 0.55rem; padding: 0.15rem 0.3rem; }
+  .photo-hud-tl, .photo-hud-tr { font-size: 0.58rem; padding: 0.15rem 0.35rem; }
+  .photo-label { font-size: 0.62rem; gap: 0.18rem; }
+
+  /* CTA buttons — full width and chunkier */
+  .hero-cta { flex-direction: column; gap: 0.55rem; }
+  .hero-cta .btn { width: 100%; padding: 1rem 1.2rem; font-size: 0.85rem; }
+
+  /* stats row breathes */
+  .hero-stats { gap: 1.6rem; padding-top: 1rem; }
+  .hstat-num { font-size: 1.4rem; }
+  .hstat-lbl { font-size: 0.64rem; }
+
+  /* section heads */
+  .sec-title { font-size: 1.6rem !important; }
+  .sec-label { font-size: 0.72rem; }
+
+  /* status board — values get their own line, more padding */
+  .status-section { padding: 0 1rem 2.5rem !important; margin-top: -2rem; }
+  .status-board { font-size: 0.85rem; }
+  .status-row { padding: 0.45rem 0; gap: 0.4rem 0.6rem; }
+  .status-stats-btn { font-size: 0.58rem; }
+
+  /* about: stats grid stays single col */
+  .about-grid { gap: 1.5rem; }
+  .about-stats { gap: 0.7rem; }
+  .stat-card { padding: 1rem; }
+
+  /* languages stack vertically */
+  .lang-rows { gap: 0.5rem; }
+  .lang-row { padding: 0.45rem 0.6rem; }
+  .lang-name { font-size: 0.85rem; }
+  .lang-level { font-size: 0.62rem; }
+
+  /* skills bars + stack — tighter and stacked */
+  .skills-cols { gap: 1.8rem; }
+  .skills-sub { font-size: 0.72rem; }
+  .skill-name { font-size: 0.78rem; }
+  .stack-card { padding: 0.95rem 1rem; }
+  .stack-title { font-size: 0.72rem; }
+  .stack-pills span { font-size: 0.68rem; padding: 0.22rem 0.5rem; }
+
+  /* timeline — left padding tighter */
+  .timeline { padding-left: 1.6rem; }
+  .timeline::before { left: 5px; }
+  .tl-dot { left: -1.6rem; }
+  .tl-card { padding: 1rem 1.1rem; }
+  .tl-role { font-size: 1rem; }
+  .tl-bullets li { font-size: 0.88rem; }
+
+  /* projects — featured stacks cleanly */
+  .featured-flag { font-size: 0.62rem; padding: 0.22rem 0.6rem; }
+  .featured-art { padding: 1rem; min-height: 180px; }
+  .featured-meta { padding: 1.1rem 1rem; }
+  .proj-title { font-size: 1.1rem; }
+  .proj-desc { font-size: 0.9rem; }
+
+  /* education + achievements + contact */
+  .edu-card, .ach-card { padding: 1.1rem 1.1rem 1.3rem; }
+  .ach-title { font-size: 0.95rem; }
+  .contact-form { padding: 1.1rem 1rem; }
+  .form-row { margin-bottom: 0.75rem; }
+  .form-row input, .form-row textarea { padding: 0.65rem 0.75rem; }
+  .contact-card { padding: 1.1rem 1rem; }
+  .cc-value { font-size: 0.88rem; }
+
+  /* footer */
+  .footer-row { font-size: 0.66rem; line-height: 1.5; }
+
+  /* detail view — kinder header on small screens */
+  .dv-header { padding: 0.65rem 0.9rem; gap: 0.5rem; }
+  .dv-back { padding: 0.5rem 0.7rem; font-size: 0.72rem; }
+  .dv-back span { display: none; } /* icon-only on phones to save space */
+  .dv-back i { width: 16px; height: 16px; }
+  .dv-prev, .dv-next { width: 40px; height: 40px; }
+  .dv-breadcrumb { font-size: 0.7rem; gap: 0.2rem; }
+  .dv-title { font-size: 1.5rem; }
+  .dv-subtitle { font-size: 0.82rem; }
+  .dv-section h3 { font-size: 1rem; }
+  .dv-section p, .dv-section ul li { font-size: 0.92rem; }
+  .dv-meta-row { grid-template-columns: 90px 1fr; font-size: 0.74rem; }
+  .dv-footer { padding: 0.7rem 0.9rem; flex-direction: column; align-items: stretch; }
+  .dv-footer-l, .dv-footer-r { width: 100%; justify-content: stretch; }
+  .dv-footer-btn { flex: 1; justify-content: center; }
+  .dv-pn { flex: 1; }
+  .dv-pn .dv-pn-title { display: none; } /* save space */
+  .dv-action { padding: 0.85rem 1rem; }
+
+  /* character sheet stats */
+  .stats-callsign { font-size: 1.35rem; }
+  .stats-realname { font-size: 0.78rem; }
+  .stats-title { font-size: 0.7rem; }
+  .stats-id-cell { min-width: 48px; padding: 0.3rem 0.5rem; }
+  .stats-id-cell strong { font-size: 0.95rem; }
+  .attr-name { font-size: 0.85rem; }
+  .attr-val { font-size: 1.1rem; }
+  .attr-desc { font-size: 0.72rem; }
+  .attr-perks span { font-size: 0.66rem; }
+
+  /* terminal */
+  .terminal-window { max-height: 92vh; }
+  .terminal-screen { padding: 0.7rem 0.8rem; font-size: 0.76rem; }
+  .term-ascii { font-size: 0.55rem; }
+  .terminal-input-line { padding: 0.55rem 0.8rem; }
+
+  /* modals fit screen */
+  .modal { padding: 0.8rem; }
+  .modal-card, .stats-card { max-height: 92vh; }
+  .modal-card-wide { max-height: 92vh; }
+  .cv-preview-frame { min-height: 180px; }
+  .modal-actions { flex-direction: column; gap: 0.4rem; }
+  .btn-modal { padding: 0.85rem 1rem; }
+
+  /* sidebar drawer animation feels slower on phones — lighten it */
+  .sidebar { width: 84vw; max-width: 320px; transition: transform 0.25s var(--ease); }
+
+  /* time HUD — hidden anyway, but the topbar should give clean info */
+  .topbar { padding: 0 1rem; height: 52px; }
+  .main { padding-top: 52px; }
+  .topbar-logo { font-size: 1rem; }
+
+  /* hamburger gets a chunkier hit area + visible border */
+  .hamburger { width: 40px; height: 40px; padding: 0 9px; }
+}
+
+/* ═══ VERY NARROW (<=380px) safety net ═══ */
+@media (max-width: 380px) {
+  .section, .section-alt { padding-left: 0.85rem !important; padding-right: 0.85rem !important; }
+  .hero { padding-left: 0.85rem !important; padding-right: 0.85rem !important; }
+  .hero-name { font-size: 2rem !important; }
+  .hero-surname { font-size: 1.05rem !important; }
+  .tag { font-size: 0.66rem; padding: 0.22rem 0.5rem; }
+  .featured-title-art { font-size: 1.6rem; }
+  .photo-frame { max-width: 240px !important; }
+  .stats-id-r { grid-template-columns: repeat(2, 1fr); gap: 0.3rem; }
+}
+
+/* ═══ FOCUS-VISIBLE for keyboard users (a11y) ═══ */
+:focus-visible {
+  outline: 2px solid var(--cp-yellow);
+  outline-offset: 2px;
+}
+button:focus-visible, a:focus-visible, [data-detail]:focus-visible {
+  outline-offset: 3px;
+}
+
+/* prevent horizontal scrollbar on phones from any rogue overflow */
+html, body { max-width: 100%; }
+img, svg, iframe, video { max-width: 100%; height: auto; }
