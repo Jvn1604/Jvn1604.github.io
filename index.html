@@ -33,6 +33,101 @@
 
   <title>JVN_04 // Jeeventhiran Sivanantham — Game Tech &amp; Full-Stack Dev</title>
 
+  <!-- ╔══════════════════════════════════════════════════════════╗
+       ║  JSON-LD STRUCTURED DATA                                 ║
+       ║  Tells Google who you are. Powers the knowledge panel    ║
+       ║  that shows up when recruiters search your name.         ║
+       ╚══════════════════════════════════════════════════════════╝ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://Jvn1604.github.io/#person",
+        "name": "Jeeventhiran Sivanantham",
+        "alternateName": "Jeeventhiran A/L Sivanantham",
+        "givenName": "Jeeventhiran",
+        "familyName": "Sivanantham",
+        "url": "https://Jvn1604.github.io/",
+        "image": "https://Jvn1604.github.io/assets/profile.jpg",
+        "description": "Year 3 Information Technology undergraduate at UTeM specialising in Game Technology. Currently shipping Escape The Debt — a Unity 6 URP serious game on Malaysian student debt management. Open for software / game-development internships, June to December 2026.",
+        "jobTitle": "Game Technology Undergraduate · Full-Stack Developer",
+        "email": "mailto:jeeven1604@gmail.com",
+        "telephone": "+60-16-527-2019",
+        "gender": "Male",
+        "nationality": { "@type": "Country", "name": "Malaysia" },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Shah Alam",
+          "addressRegion": "Selangor",
+          "addressCountry": "MY"
+        },
+        "knowsLanguage": [
+          { "@type": "Language", "name": "Tamil",          "alternateName": "ta" },
+          { "@type": "Language", "name": "English",        "alternateName": "en" },
+          { "@type": "Language", "name": "Bahasa Malaysia","alternateName": "ms" },
+          { "@type": "Language", "name": "Malayalam",      "alternateName": "ml" }
+        ],
+        "knowsAbout": [
+          "Game Development",
+          "Unity Engine",
+          "C#",
+          "Python",
+          "Django",
+          "MySQL",
+          "Full-Stack Web Development",
+          "Arduino",
+          "Internet of Things",
+          "Serious Games",
+          "Game Design",
+          "Software Engineering"
+        ],
+        "alumniOf": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Universiti Teknikal Malaysia Melaka",
+            "alternateName": "UTeM",
+            "url": "https://www.utem.edu.my/",
+            "address": { "@type": "PostalAddress", "addressCountry": "MY", "addressLocality": "Melaka" }
+          },
+          {
+            "@type": "EducationalOrganization",
+            "name": "Politeknik Mersing",
+            "url": "https://www.pmj.edu.my/",
+            "address": { "@type": "PostalAddress", "addressCountry": "MY", "addressLocality": "Mersing, Johor" }
+          }
+        ],
+        "award": [
+          "Dean's List · Politeknik Mersing · 2 consecutive semesters"
+        ],
+        "sameAs": [
+          "https://github.com/Jvn1604",
+          "https://www.linkedin.com/in/jeeventhiran-sivanantham-b5abb9261/"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://Jvn1604.github.io/#website",
+        "url": "https://Jvn1604.github.io/",
+        "name": "JVN_04 // Jeeventhiran Sivanantham — Portfolio",
+        "description": "Cyberpunk-themed portfolio of Jeeventhiran Sivanantham — Game Tech &amp; Full-Stack Developer.",
+        "publisher": { "@id": "https://Jvn1604.github.io/#person" },
+        "inLanguage": "en-MY"
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": "https://Jvn1604.github.io/#profilepage",
+        "url": "https://Jvn1604.github.io/",
+        "name": "Jeeventhiran Sivanantham — Portfolio",
+        "isPartOf": { "@id": "https://Jvn1604.github.io/#website" },
+        "about": { "@id": "https://Jvn1604.github.io/#person" },
+        "mainEntity": { "@id": "https://Jvn1604.github.io/#person" }
+      }
+    ]
+  }
+  </script>
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -861,7 +956,18 @@
           Open to collaborations, freelance gigs, or just a quick chat.
         </p>
 
-        <!-- Contact form -->
+        <!-- ╔════════════════════════════════════════════════════════════╗
+             ║  FORMSPREE SETUP — REPLACE THE ID BELOW                    ║
+             ║                                                            ║
+             ║  1. Go to https://formspree.io and sign up (free 50/mo)    ║
+             ║  2. Click "+ New Form", name it "Portfolio Contact"        ║
+             ║  3. Set the recipient to jeeven1604@gmail.com              ║
+             ║  4. Copy your form ID — looks like "xkgwabcd" (8 chars)    ║
+             ║  5. Replace YOUR_FORMSPREE_ID in the form action below     ║
+             ║                                                            ║
+             ║  Final URL should look like:                               ║
+             ║    https://formspree.io/f/xkgwabcd                         ║
+             ╚════════════════════════════════════════════════════════════╝ -->
         <form class="contact-form" id="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" novalidate>
           <div class="form-head">
             <i data-lucide="send"></i>
