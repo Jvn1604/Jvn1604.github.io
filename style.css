@@ -42,7 +42,8 @@ ul { list-style: none; }
 
   /* metrics */
   --side:             240px;
-  --max-w:            1240px;
+  --max-w:            1340px;
+  --max-w-hero:       1520px;
   --radius:           0; /* sharp corners */
   --radius-sm:        2px;
 
@@ -409,6 +410,9 @@ body {
 .hero {
   min-height: 100vh;
   padding-top: 8rem; padding-bottom: 6rem;
+  padding-left: clamp(2rem, 5vw, 6rem);
+  padding-right: clamp(2rem, 5vw, 6rem);
+  max-width: none;
   display: flex; flex-direction: column; justify-content: center;
   position: relative;
   overflow: hidden;
@@ -455,8 +459,11 @@ body {
   position: relative; z-index: 1;
   display: grid;
   grid-template-columns: 1.2fr 1fr;
-  gap: 4rem;
+  gap: clamp(2.5rem, 5vw, 5rem);
   align-items: center;
+  max-width: var(--max-w-hero);
+  margin: 0 auto;
+  width: 100%;
 }
 
 .hero-meta {
@@ -482,7 +489,7 @@ body {
 
 .hero-name {
   font-family: var(--display);
-  font-size: clamp(2.4rem, 6vw, 4.6rem);
+  font-size: clamp(2.4rem, 6.5vw, 5.6rem);
   font-weight: 900;
   letter-spacing: 0.02em;
   line-height: 1;
@@ -492,7 +499,7 @@ body {
 }
 .hero-surname {
   font-family: var(--display);
-  font-size: clamp(1.4rem, 3.4vw, 2.4rem);
+  font-size: clamp(1.4rem, 3.8vw, 2.8rem);
   font-weight: 600;
   letter-spacing: 0.18em;
   color: var(--cp-yellow);
@@ -602,7 +609,7 @@ body {
 .hero-right { display: flex; justify-content: center; }
 .photo-frame {
   position: relative;
-  width: 100%; max-width: 380px;
+  width: 100%; max-width: clamp(320px, 28vw, 440px);
   padding: 1rem;
   border: 1px solid var(--cp-yellow);
   background: linear-gradient(135deg, rgba(252,238,10,0.04), transparent 60%);
@@ -3053,4 +3060,147 @@ body.konami-active::after {
 @keyframes konamiFade {
   0% { opacity: 1; }
   100% { opacity: 0; }
+}
+
+/* ╔═══════════════════════════════════════════════════════════╗
+   ║  HERO AMBIENT DECORATIONS                                 ║
+   ║  Fill the wide-screen empty space with atmosphere         ║
+   ╚═══════════════════════════════════════════════════════════╝ */
+
+/* vertical edge labels — only visible on wide screens */
+.hero-ambient {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  display: none; /* hidden by default, shown via media query below */
+}
+.hero-amb-left  { left: -3.5rem;  top: 12%;  bottom: 12%; }
+.hero-amb-right { right: -3.5rem; top: 12%;  bottom: 12%; }
+.hero-amb-vert {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 0.4em;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  opacity: 0.55;
+  transform: rotate(180deg);
+  text-transform: uppercase;
+  white-space: nowrap;
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%) rotate(180deg);
+}
+.hero-amb-vert-r {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+/* show the edge labels only on wide screens */
+@media (min-width: 1500px) {
+  .hero-ambient { display: block; }
+}
+
+/* floating data stream chip on the right edge */
+.hero-stream {
+  position: absolute;
+  right: -1rem;
+  bottom: 8%;
+  width: 220px;
+  z-index: 2;
+  border: 1px solid var(--cp-yellow);
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 0 0 1px rgba(252,238,10,0.08), 0 0 30px rgba(252,238,10,0.06);
+  display: none; /* hidden by default, shown on wide screens */
+  pointer-events: none;
+  user-select: none;
+}
+[data-theme="light"] .hero-stream {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: #6B5A00;
+  box-shadow: 0 0 0 1px rgba(212,184,0,0.18), 0 8px 30px rgba(10,10,10,0.08);
+}
+.hero-stream-head {
+  display: flex; align-items: center; gap: 0.45rem;
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  color: var(--cp-yellow);
+  padding: 0.35rem 0.7rem;
+  background: rgba(252, 238, 10, 0.08);
+  border-bottom: 1px solid var(--border);
+}
+[data-theme="light"] .hero-stream-head { color: #6B5A00; }
+.hero-stream-led {
+  width: 6px; height: 6px;
+  background: var(--cp-cyan);
+  box-shadow: 0 0 6px var(--cp-cyan);
+  border-radius: 50%;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+[data-theme="light"] .hero-stream-led { background: #006C7A; box-shadow: 0 0 6px rgba(0,108,122,0.5); }
+
+.hero-stream-body {
+  padding: 0.6rem 0.7rem;
+  max-height: 200px;
+  overflow: hidden;
+  position: relative;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  line-height: 1.6;
+}
+.hs-log {
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0;
+  animation: hsLogIn 0.35s ease-out forwards;
+}
+.hs-log:nth-child(1)  { animation-delay: 0.4s; }
+.hs-log:nth-child(2)  { animation-delay: 0.7s; }
+.hs-log:nth-child(3)  { animation-delay: 1.0s; }
+.hs-log:nth-child(4)  { animation-delay: 1.3s; }
+.hs-log:nth-child(5)  { animation-delay: 1.6s; }
+.hs-log:nth-child(6)  { animation-delay: 1.9s; }
+.hs-log:nth-child(7)  { animation-delay: 2.2s; }
+.hs-log:nth-child(8)  { animation-delay: 2.5s; }
+.hs-log:nth-child(9)  { animation-delay: 2.8s; }
+.hs-log:nth-child(10) { animation-delay: 3.1s; }
+.hs-ok   { color: var(--cp-cyan); }
+.hs-warn { color: var(--cp-yellow); }
+[data-theme="light"] .hs-ok { color: #006C7A; }
+[data-theme="light"] .hs-warn { color: #6B5A00; }
+@keyframes hsLogIn {
+  from { opacity: 0; transform: translateX(-6px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* fade-out gradient at top of stream body for "scrolling" feel */
+.hero-stream-body::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 30px;
+  background: linear-gradient(to bottom, rgba(10,10,10,0.95), transparent);
+  pointer-events: none;
+}
+[data-theme="light"] .hero-stream-body::before {
+  background: linear-gradient(to bottom, rgba(255,255,255,0.95), transparent);
+}
+
+@media (min-width: 1400px) {
+  .hero-stream { display: block; }
+}
+/* slightly nudge stream further right on huge screens so it doesn't crowd the photo */
+@media (min-width: 1700px) {
+  .hero-stream { right: -3rem; width: 250px; }
+}
+@media (max-width: 1399px) {
+  .hero-stream { display: none; }
+}
+
+/* on very wide screens, make stats row breathe more */
+@media (min-width: 1500px) {
+  .hero-stats { gap: 3rem; padding-top: 1.8rem; }
+  .hstat-num { font-size: 1.9rem; }
 }
