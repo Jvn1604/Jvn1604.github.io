@@ -322,18 +322,51 @@
   const form = document.getElementById('contact-form');
   const formStatus = document.getElementById('form-status');
   if (form && formStatus) {
+    const submitBtn = form.querySelector('.btn-submit');
+    const submitLabel = submitBtn?.querySelector('span');
+    const originalLabel = submitLabel?.textContent || 'TRANSMIT';
+
+    // clear status the moment user starts editing again
+    form.querySelectorAll('input, textarea').forEach(el => {
+      el.addEventListener('input', () => {
+        if (formStatus.className !== 'form-status') {
+          formStatus.className = 'form-status';
+          formStatus.textContent = '';
+        }
+      });
+    });
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       formStatus.className = 'form-status';
       formStatus.textContent = '';
 
-      // If the user hasn't set up Formspree yet, show a friendly fallback
       const action = form.getAttribute('action');
+
+      // friendly guard if user hasn't pasted their Formspree ID yet
       if (action.includes('YOUR_FORMSPREE_ID')) {
         formStatus.className = 'form-status error';
-        formStatus.textContent = '> form not yet connected. open formspree.io, grab your form ID, paste it into the form action URL.';
+        formStatus.textContent = '> form not yet wired up. open formspree.io, grab your form ID, paste it into the form action URL (see the comment block above the <form> tag).';
         return;
       }
+
+      // basic client-side validation (HTML5 catches most, but sanity-check)
+      if (!form.checkValidity()) {
+        formStatus.className = 'form-status error';
+        formStatus.textContent = '> validation failed. fill out all required fields with valid data.';
+        form.reportValidity?.();
+        return;
+      }
+
+      // lock the button + show transmitting state
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.6';
+        submitBtn.style.cursor = 'wait';
+      }
+      if (submitLabel) submitLabel.textContent = 'TRANSMITTING…';
+      formStatus.className = 'form-status';
+      formStatus.textContent = '';
 
       const data = new FormData(form);
       try {
@@ -349,11 +382,19 @@
         } else {
           const json = await res.json().catch(() => ({}));
           formStatus.className = 'form-status error';
-          formStatus.textContent = '> ERROR. ' + (json.errors?.[0]?.message || 'transmission failed. try email instead.');
+          formStatus.textContent = '> ERROR. ' + (json.errors?.[0]?.message || 'transmission failed. try email directly: jeeven1604@gmail.com');
         }
       } catch (err) {
         formStatus.className = 'form-status error';
-        formStatus.textContent = '> NETWORK_ERROR. check connection or email directly.';
+        formStatus.textContent = '> NETWORK_ERROR. check your connection — or email directly: jeeven1604@gmail.com';
+      } finally {
+        // restore button regardless
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = '';
+          submitBtn.style.cursor = '';
+        }
+        if (submitLabel) submitLabel.textContent = originalLabel;
       }
     });
   }
