@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   JVN_04 · CYBERPUNK PORTFOLIO · script.js
+   Jeeven · CYBERPUNK PORTFOLIO · script.js
    ═══════════════════════════════════════════════════════════════ */
 
 (() => {
@@ -616,7 +616,7 @@
     whoami: () => {
       termWrite(`<pre class="term-ascii"> ╔═══════════════════════════════════════════╗
  ║  JEEVENTHIRAN A/L SIVANANTHAM              ║
- ║  callsign: <span class="term-c">JVN_04</span>                          ║
+ ║  callsign: <span class="term-c">Jeeven</span>                          ║
  ║  class:    <span class="term-c">OPERATOR · GAME_TECH</span>            ║
  ║  base:     <span class="term-c">Shah Alam, Selangor, MY</span>         ║
  ╚═══════════════════════════════════════════╝</pre>
