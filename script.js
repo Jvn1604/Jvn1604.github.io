@@ -379,41 +379,6 @@
     themeBtn.addEventListener('click', () => setTimeout(refreshGhStats, 50));
   }
 
-  /* ─────────── CASE STUDY MODAL ─────────── */
-  const csModal  = document.getElementById('cs-modal');
-  const csBody   = document.getElementById('cs-body');
-  const csClose  = csModal?.querySelector('.cs-close');
-
-  const openCs = (key) => {
-    const tpl = document.getElementById('cs-tpl-' + key);
-    if (!tpl || !csModal || !csBody) return;
-    csBody.innerHTML = '';
-    csBody.appendChild(tpl.content.cloneNode(true));
-    // re-render lucide icons inside the freshly cloned content
-    if (window.lucide) lucide.createIcons();
-    csModal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    csBody.scrollTop = 0;
-  };
-  const closeCs = () => {
-    csModal?.classList.remove('open');
-    document.body.style.overflow = '';
-  };
-
-  document.querySelectorAll('.cs-trigger').forEach(btn => {
-    btn.addEventListener('click', e => {
-      e.preventDefault();
-      openCs(btn.dataset.cs);
-    });
-  });
-
-  csClose?.addEventListener('click', closeCs);
-  csModal?.addEventListener('click', e => { if (e.target === csModal) closeCs(); });
-
-  // Esc closes whichever modal is open
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && csModal?.classList.contains('open')) closeCs();
-  });
 
   /* ╔═══════════════════════════════════════════════════════════╗
      ║  TIER 3 FEATURES                                          ║
