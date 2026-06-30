@@ -79,6 +79,17 @@
   <!-- ╔══ SCROLL PROGRESS ══╗ -->
   <div class="scroll-progress"><div class="scroll-progress-bar"></div></div>
 
+  <!-- ╔══ LIVE TIME / LOCATION HUD ══╗ -->
+  <div class="time-hud" aria-live="off">
+    <span class="time-hud-dot"></span>
+    <span class="time-hud-loc">SHAH ALAM</span>
+    <span class="time-hud-sep">·</span>
+    <span class="time-hud-time">--:--:--</span>
+    <span class="time-hud-sep">·</span>
+    <span class="time-hud-day">---</span>
+    <span class="time-hud-mode">MYT</span>
+  </div>
+
   <!-- ╔══ MOBILE TOPBAR ══╗ -->
   <header class="topbar">
     <div class="topbar-logo">JVN_04</div>
@@ -141,6 +152,19 @@
         <i data-lucide="sun" class="theme-icon-light"></i>
         <span class="theme-label">NIGHT_CITY</span>
       </button>
+      <div class="sidebar-extra">
+        <button class="audio-toggle" aria-label="Toggle ambient audio" aria-pressed="false">
+          <i data-lucide="volume-x" class="audio-icon-off"></i>
+          <i data-lucide="volume-2" class="audio-icon-on"></i>
+          <span class="audio-label">AMBIENT</span>
+          <span class="audio-state">OFF</span>
+        </button>
+        <button class="terminal-toggle" aria-label="Open terminal (` or ~)">
+          <i data-lucide="terminal"></i>
+          <span class="terminal-toggle-label">TERMINAL</span>
+          <span class="terminal-toggle-key">[~]</span>
+        </button>
+      </div>
       <div class="sidebar-socials">
         <a href="https://github.com/Jvn1604" target="_blank" rel="noopener" aria-label="GitHub"><i data-lucide="github"></i></a>
         <a href="https://www.linkedin.com/in/jeeventhiran-sivanantham-b5abb9261/" target="_blank" rel="noopener" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
@@ -272,6 +296,9 @@
             <span class="status-header-bracket">]</span>
           </div>
           <div class="status-header-r">
+            <button class="status-stats-btn" data-open-stats title="Open character sheet">
+              <i data-lucide="layers"></i> STATS
+            </button>
             <span class="status-led"></span> LIVE
           </div>
         </div>
@@ -614,8 +641,9 @@
               <span class="tech-tag">Serious Game Design</span>
             </div>
             <div class="proj-links">
-              <a class="proj-link" href="#"><i data-lucide="external-link"></i> CASE STUDY</a>
-              <a class="proj-link" href="https://github.com/Jvn1604" target="_blank"><i data-lucide="github"></i> REPO</a>
+              <button class="cs-trigger" data-cs="etd"><i data-lucide="file-text"></i> READ CASE STUDY</button>
+              <a class="proj-link" href="https://youtu.be/nqNphGQWkg8" target="_blank" rel="noopener"><i data-lucide="play-circle"></i> WATCH GAMEPLAY</a>
+              <a class="proj-link" href="https://github.com/Jvn1604" target="_blank" rel="noopener"><i data-lucide="github"></i> REPO</a>
             </div>
           </div>
         </div>
@@ -634,6 +662,9 @@
             <span class="tech-tag">Django</span>
             <span class="tech-tag">MySQL</span>
             <span class="tech-tag">Bootstrap&nbsp;5</span>
+          </div>
+          <div class="proj-links" style="margin-top:0.8rem;">
+            <button class="cs-trigger" data-cs="bts"><i data-lucide="file-text"></i> READ CASE STUDY</button>
           </div>
         </article>
 
@@ -892,7 +923,357 @@
 
   </main>
 
-  <!-- ╔══ CV DOWNLOAD MODAL ══╗ -->
+  <!-- ╔══ TERMINAL OVERLAY (Tier 3 #11) ══╗ -->
+  <div class="terminal-overlay" id="terminal" aria-hidden="true">
+    <div class="terminal-window">
+      <div class="terminal-titlebar">
+        <div class="terminal-tb-l">
+          <span class="terminal-traffic"><span></span><span></span><span></span></span>
+          <span class="terminal-title">jvn@portfolio:~ — bash · 80×24</span>
+        </div>
+        <button class="terminal-close" aria-label="Close terminal (ESC)">×</button>
+      </div>
+      <div class="terminal-screen" id="terminal-screen" tabindex="-1">
+        <div class="term-line term-banner">
+JVN_OS [<span class="term-y">v2.0.77</span>] · neural-link <span class="term-c">ACTIVE</span>
+Last login: just now from <span class="term-c">127.0.0.1</span>
+
+Type '<span class="term-y">help</span>' for available commands.
+Press <span class="term-y">ESC</span> or type '<span class="term-y">exit</span>' to close.
+        </div>
+      </div>
+      <div class="terminal-input-line">
+        <span class="terminal-prompt">jvn@portfolio<span class="term-c">:~$</span></span>
+        <input type="text" class="terminal-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="Terminal input" />
+        <span class="terminal-caret">█</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ╔══ CHARACTER SHEET MODAL (Tier 3 #12) ══╗ -->
+  <div class="modal stats-modal" id="stats-modal" role="dialog" aria-modal="true" aria-labelledby="stats-modal-title">
+    <div class="stats-card">
+      <div class="stats-header">
+        <div class="stats-header-l">
+          <i data-lucide="layers"></i>
+          <span id="stats-modal-title">CHARACTER_DATA.dat</span>
+        </div>
+        <div class="stats-header-r">
+          <span class="stats-header-build">BUILD: NETRUNNER / DEV</span>
+          <button class="modal-close stats-close" aria-label="Close"><i data-lucide="x"></i></button>
+        </div>
+      </div>
+
+      <div class="stats-identity">
+        <div class="stats-id-l">
+          <div class="stats-callsign">JVN_04</div>
+          <div class="stats-realname">Jeeventhiran A/L Sivanantham</div>
+          <div class="stats-title">Game Tech / Full-Stack · Operator-class</div>
+        </div>
+        <div class="stats-id-r">
+          <div class="stats-id-cell"><span>LVL</span><strong>03</strong></div>
+          <div class="stats-id-cell"><span>XP</span><strong>4877</strong></div>
+          <div class="stats-id-cell"><span>YR</span><strong>2026</strong></div>
+          <div class="stats-id-cell"><span>LOC</span><strong>MY</strong></div>
+        </div>
+      </div>
+
+      <div class="stats-body">
+        <!-- Attributes -->
+        <div class="stats-attrs">
+          <div class="stats-section-label">// ATTRIBUTES</div>
+
+          <div class="attr-row" data-pct="70">
+            <div class="attr-head">
+              <span class="attr-num">/01</span>
+              <span class="attr-name">BODY</span>
+              <span class="attr-val">7<small>/10</small></span>
+            </div>
+            <div class="attr-bar"><div class="attr-fill"></div></div>
+            <div class="attr-desc">Physical-world systems · hardware affinity</div>
+            <div class="attr-perks">
+              <span>Arduino</span><span>IoT</span><span>Hardware Tinkering</span><span>Packet Tracer</span>
+            </div>
+          </div>
+
+          <div class="attr-row" data-pct="80">
+            <div class="attr-head">
+              <span class="attr-num">/02</span>
+              <span class="attr-name">REFLEX</span>
+              <span class="attr-val">8<small>/10</small></span>
+            </div>
+            <div class="attr-bar"><div class="attr-fill"></div></div>
+            <div class="attr-desc">Twitch-driven gameplay systems &amp; engine work</div>
+            <div class="attr-perks">
+              <span>Unity 6 URP</span><span>C#</span><span>SteamVR</span><span>Blender</span><span>Game Design</span>
+            </div>
+          </div>
+
+          <div class="attr-row" data-pct="85">
+            <div class="attr-head">
+              <span class="attr-num">/03</span>
+              <span class="attr-name">TECHNICAL</span>
+              <span class="attr-val">8<small>/10</small></span>
+            </div>
+            <div class="attr-bar"><div class="attr-fill"></div></div>
+            <div class="attr-desc">Full-stack systems · backend, db, deployment</div>
+            <div class="attr-perks">
+              <span>Python</span><span>Django</span><span>MySQL</span><span>PHP</span><span>JavaScript</span><span>Linux</span><span>Git</span>
+            </div>
+          </div>
+
+          <div class="attr-row" data-pct="92">
+            <div class="attr-head">
+              <span class="attr-num">/04</span>
+              <span class="attr-name">INTELLIGENCE</span>
+              <span class="attr-val">9<small>/10</small></span>
+            </div>
+            <div class="attr-bar"><div class="attr-fill"></div></div>
+            <div class="attr-desc">Academic + linguistic — strongest stat</div>
+            <div class="attr-perks">
+              <span>4 Languages</span><span>Dean's List × 2</span><span>UTeM Game Tech</span><span>Top Glove Intern</span>
+            </div>
+          </div>
+
+          <div class="attr-row" data-pct="75">
+            <div class="attr-head">
+              <span class="attr-num">/05</span>
+              <span class="attr-name">COOL</span>
+              <span class="attr-val">7<small>/10</small></span>
+            </div>
+            <div class="attr-bar"><div class="attr-fill"></div></div>
+            <div class="attr-desc">Style, UI sense, presentation</div>
+            <div class="attr-perks">
+              <span>Figma</span><span>UI/UX</span><span>Storyboarding</span><span>Portfolio Design</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Equipment column -->
+        <div class="stats-equip">
+          <div class="stats-section-label">// EQUIPMENT</div>
+          <div class="equip-slot">
+            <div class="equip-key">PRIMARY</div>
+            <div class="equip-val">Unity 6 URP <span>· game engine</span></div>
+          </div>
+          <div class="equip-slot">
+            <div class="equip-key">SECONDARY</div>
+            <div class="equip-val">Django + Python <span>· web framework</span></div>
+          </div>
+          <div class="equip-slot">
+            <div class="equip-key">TERTIARY</div>
+            <div class="equip-val">VS Code + Git <span>· dev environment</span></div>
+          </div>
+          <div class="equip-slot">
+            <div class="equip-key">ARMOR</div>
+            <div class="equip-val">GitHub Pages <span>· deployment</span></div>
+          </div>
+          <div class="equip-slot">
+            <div class="equip-key">ACCESSORY</div>
+            <div class="equip-val">Figma + Blender <span>· design tools</span></div>
+          </div>
+
+          <div class="stats-section-label" style="margin-top:1.4rem;">// QUEST</div>
+          <div class="quest-card">
+            <div class="quest-name">▸ ESCAPE THE DEBT</div>
+            <div class="quest-status">STATUS: <em>in production</em></div>
+            <div class="quest-prog">
+              <div class="quest-prog-bar"><div style="width:68%"></div></div>
+              <span>68%</span>
+            </div>
+            <div class="quest-reward">REWARD: <span>FYP completion · degree unlock</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-footer">
+        <div class="stats-footer-l">CHARACTER BUILT FOR: <strong>internship application 2026</strong></div>
+        <div class="stats-footer-r">PRESS ESC TO CLOSE</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ╔══ KONAMI TOAST (Tier 3 #13) ══╗ -->
+  <div class="konami-toast" id="konami-toast" aria-hidden="true">
+    <div class="konami-toast-inner">
+      <div class="konami-glyph">★</div>
+      <div class="konami-msg">
+        <div class="konami-line-1">CHEAT CODE ACCEPTED</div>
+        <div class="konami-line-2">// LEGENDARY MODE ENGAGED</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ╔══ CASE STUDY MODAL ══╗ -->
+  <div class="modal" id="cs-modal" role="dialog" aria-modal="true" aria-labelledby="cs-modal-title">
+    <div class="cs-card">
+      <div class="cs-header">
+        <div class="cs-header-title" id="cs-modal-title">
+          <i data-lucide="file-text"></i>
+          <span>CASE_STUDY.md</span>
+        </div>
+        <button class="modal-close cs-close" aria-label="Close">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="cs-body" id="cs-body"><!-- injected by JS --></div>
+    </div>
+  </div>
+
+  <!-- Hidden case study content templates -->
+  <template id="cs-tpl-etd">
+    <div class="cs-hero">
+      <div class="cs-badge">🎮 UNITY 6 URP · FIRST-PERSON · FYP IN PRODUCTION</div>
+      <h2 class="cs-title">Escape The Debt</h2>
+      <div class="cs-sub">// A serious game teaching Malaysian undergrads about debt management</div>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-section-label">// THE PROBLEM</div>
+      <p>
+        Malaysian undergraduates aged 20–25 carry an outsized share of national consumer debt — PTPTN study loans
+        with compounding interest, credit cards picked up casually after graduation, and the BNPL ("Buy Now Pay Later")
+        boom that turned every checkout into a 4-payment trap. Financial literacy gets taught in slides; debt is felt
+        in real life. The gap is well documented and growing.
+      </p>
+      <p>
+        How do you teach <em>felt</em> consequences without making someone actually default? You simulate it.
+      </p>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-section-label">// THE APPROACH</div>
+      <h3>A first-person escape room across three levels of debt</h3>
+      <p>
+        Players guide <em>Kayal</em> — a fresh graduate — through three escape-room style levels,
+        each modelling a real Malaysian debt mechanic. The escape room format works because it forces
+        the player to <em>understand</em> the system to progress; you can't button-mash through compound interest.
+      </p>
+      <ul>
+        <li><strong>Level 1 — PTPTN Office:</strong> Shredded document reconstruction → balance scale repayment-path choice → compound interest simulation device → debt-meter-linked failure state.</li>
+        <li><strong>Level 2 — Credit Card Dungeon:</strong> Players experience compounding interest as a literal closing wall — the longer you take to solve, the smaller the room gets.</li>
+        <li><strong>Level 3 — BNPL Shopping Trap:</strong> Multiple "harmless" 4-instalment commitments stack into an unmanageable monthly burn rate. Visualised via the Pending Instalment meter.</li>
+      </ul>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-section-label">// CORE SYSTEMS</div>
+      <div class="cs-grid">
+        <div class="cs-stat"><div class="cs-stat-label">METER 01</div><div class="cs-stat-val">Income</div></div>
+        <div class="cs-stat"><div class="cs-stat-label">METER 02</div><div class="cs-stat-val">Debt</div></div>
+        <div class="cs-stat"><div class="cs-stat-label">METER 03</div><div class="cs-stat-val">Pending Instalments</div></div>
+        <div class="cs-stat"><div class="cs-stat-label">SYS 01</div><div class="cs-stat-val">DebtTicker</div></div>
+        <div class="cs-stat"><div class="cs-stat-label">SYS 02</div><div class="cs-stat-val">Kayal Organizer</div></div>
+        <div class="cs-stat"><div class="cs-stat-label">SCENE</div><div class="cs-stat-val">Results / Defense</div></div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-section-label">// UI / HUD</div>
+      <ul>
+        <li><strong>HUD V3:</strong> chunky top-left status panel, stress gradient bar, day pill, scrolling event feed — all readable at a glance during first-person play.</li>
+        <li><strong>Kayal Organizer:</strong> inventory modal with 4 colour-coded tabs (Documents, Items, Debts, Goals). Acts as both gameplay tool and educational reference layer.</li>
+        <li><strong>Main Menu &amp; Pause:</strong> aesthetic borrowed from Duelyst — minimal, holographic, never breaks immersion.</li>
+      </ul>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-section-label">// TECH STACK</div>
+      <div class="cs-techs">
+        <span>Unity 6 URP</span>
+        <span>C#</span>
+        <span>Blender</span>
+        <span>Figma</span>
+        <span>Visual Studio 2022</span>
+        <span>GitHub</span>
+        <span>Serious Game Design</span>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-section-label">// LEARNINGS</div>
+      <ul>
+        <li>Educational defense layer matters more than puzzle design — without the Results scene tying mechanics to real consequences, players just remember the puzzles.</li>
+        <li>Iterative prototyping methodology (4 puzzle revisions on Level 1 alone) was non-negotiable for getting the difficulty curve right.</li>
+        <li>Solo full-stack game dev forces hard scope cuts. Three levels with deep mechanics beats five shallow ones.</li>
+      </ul>
+    </div>
+
+    <div class="cs-links">
+      <a class="cs-link" href="https://youtu.be/nqNphGQWkg8" target="_blank" rel="noopener"><i data-lucide="play-circle"></i> WATCH GAMEPLAY</a>
+      <a class="cs-link" href="https://github.com/Jvn1604" target="_blank" rel="noopener"><i data-lucide="github"></i> GITHUB</a>
+    </div>
+  </template>
+
+  <template id="cs-tpl-bts">
+    <div class="cs-hero">
+      <div class="cs-badge">🏭 INDUSTRIAL TRAINING · DEPLOYED INTERNALLY</div>
+      <h2 class="cs-title">Blind Test System</h2>
+      <div class="cs-sub">// QA automation for Top Glove Sdn. Bhd.</div>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-section-label">// THE PROBLEM</div>
+      <p>
+        Top Glove is the world's largest rubber glove manufacturer. Their Quality Assurance team ran blind product
+        tests entirely on paper — operators manually recorded results, supervisors keyed them into Excel,
+        and reports were assembled by hand at month-end. Each step lost data, introduced typos, and slowed feedback
+        to the production line.
+      </p>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-section-label">// THE APPROACH</div>
+      <h3>Replace the paper trail with a single source of truth</h3>
+      <p>
+        I built an internal Django web application that operators access from the QA floor. Blind tests are
+        configured once by a supervisor, served to operators as randomised forms (preventing bias), and results
+        feed straight into a MySQL database with full audit logging.
+      </p>
+      <ul>
+        <li>Configurable blind test templates (any product line, any test type)</li>
+        <li>Randomised sample order to enforce true blind testing</li>
+        <li>Real-time dashboards for supervisors with filterable reports</li>
+        <li>Role-based access — operators only see what they need; supervisors get the full picture</li>
+        <li>Bootstrap 5 front-end designed for tablet use on the factory floor</li>
+      </ul>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-section-label">// IMPACT</div>
+      <div class="cs-grid">
+        <div class="cs-stat"><div class="cs-stat-label">PROCESS</div><div class="cs-stat-val">Paper → Digital</div></div>
+        <div class="cs-stat"><div class="cs-stat-label">REPORT TIME</div><div class="cs-stat-val">Days → Minutes</div></div>
+        <div class="cs-stat"><div class="cs-stat-label">DEPLOYED</div><div class="cs-stat-val">QA Department</div></div>
+        <div class="cs-stat"><div class="cs-stat-label">USERS</div><div class="cs-stat-val">Operators + Supervisors</div></div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-section-label">// TECH STACK</div>
+      <div class="cs-techs">
+        <span>Python</span>
+        <span>Django</span>
+        <span>MySQL</span>
+        <span>Bootstrap 5</span>
+        <span>HTML / CSS</span>
+        <span>JavaScript</span>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-section-label">// LEARNINGS</div>
+      <ul>
+        <li>Real users don't care about your tech stack — they care about whether tomorrow's shift is easier than today's. Every UX decision flowed from sitting with operators for a morning.</li>
+        <li>Production deployment in an industrial environment means designing for unreliable WiFi, gloved fingers, and shift handovers.</li>
+        <li>The hardest part of automating a manual process is convincing the people who run it that you've understood it. Walk-throughs &gt; specs.</li>
+      </ul>
+    </div>
+
+    <div class="cs-links">
+      <a class="cs-link" href="#contact"><i data-lucide="mail"></i> ASK FOR DETAILS</a>
+    </div>
+  </template>
   <div class="modal" id="cv-modal" role="dialog" aria-modal="true" aria-labelledby="cv-modal-title">
     <div class="modal-card modal-card-wide">
       <div class="modal-header">
