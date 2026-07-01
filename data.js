@@ -23,20 +23,21 @@ window.JEEVEN_DETAILS = {
 
   'project/escape-the-debt': {
     type: 'project',
-    label: 'PROJECT · FEATURED',
+    label: 'PROJECT · FEATURED · PSM1 ✓ · PSM2 IN PROGRESS · 90%',
     title: 'Escape The Debt',
-    subtitle: 'Unity 6 URP · First-Person Serious Game · UTeM FYP',
+    subtitle: 'Unity 6 URP · First-Person Serious Game · UTeM FYP · PSM1 shipped, PSM2 in polish',
     cover: 'assets/media/projects/escape-the-debt/cover.jpg',
-    desc: 'A first-person serious-game prototype that teaches Malaysian undergrads (20–25 y/o) about debt management. Players guide <strong>Kayal</strong> through three escape-room levels: the PTPTN Office, a Credit Card Dungeon, and a BNPL Shopping Trap — solving puzzles around compounding interest, repayment paths and stress management.',
+    desc: 'A first-person serious-game prototype that teaches Malaysian undergrads (20–25 y/o) about debt management. Players guide <strong>Kayal</strong> through three escape-room levels: the PTPTN Office, a Credit Card Dungeon, and a BNPL Shopping Trap — solving puzzles around compounding interest, repayment paths and stress management. <strong>PSM1 has shipped</strong> — three playable levels + 5 game systems. Now iterating on PSM2 polish and defense.',
     meta: {
-      STATUS:  'In production',
+      STATUS:  'PSM1 shipped · PSM2 in progress',
+      PROGRESS: '90% complete',
       ENGINE:  'Unity 6 URP',
       ROLE:    'Solo developer',
       TYPE:    'FYP · Serious Game',
-      TIME:    '~8 months',
-      RELEASE: 'Mid 2026',
+      TIME:    '~10 months in',
+      DEFENSE: 'Mid 2026 (PSM2)',
     },
-    tags: ['Unity 6', 'C#', 'Serious Game', 'FYP', 'Solo Dev', 'First-Person', 'URP', 'Blender', 'Figma'],
+    tags: ['Unity 6', 'C#', 'Serious Game', 'FYP', 'PSM1 ✓', 'Solo Dev', 'First-Person', 'URP', 'Blender', 'Figma'],
     media: [
       { type: 'video', embed: 'https://www.youtube.com/embed/nqNphGQWkg8',
         thumb: 'https://img.youtube.com/vi/nqNphGQWkg8/hqdefault.jpg',
@@ -67,6 +68,14 @@ window.JEEVEN_DETAILS = {
           { label: 'SYS 02',   val: 'Kayal Organizer' },
           { label: 'SCENE',    val: 'Results / Defense' },
       ]},
+      { label: '// PSM1 → PSM2 · MILESTONES', heading: 'What shipped, what\'s left', body:
+        `<p><strong>PSM1 (shipped ✓)</strong> — Proposal defense passed. Three playable levels built and tested. Core game systems (HUD V3, Kayal Organizer, three meters) locked. FYP report Chapter 1 &amp; Chapter 3 written with APA citations. Storyboard for all 27 panels finalised.</p>
+         <p><strong>PSM2 (in progress · ~90% overall)</strong> — Polish pass on levels 2 &amp; 3. Results/Defense scene tying gameplay outcomes back to real financial lessons. Final playtest round with target audience. FYP report chapters 2, 4, 5. Presentation and demo build for the final defense.</p>
+         <ul>
+           <li><strong>Ship-blocking scope for PSM2:</strong> Results scene, defense scene, sound pass, remaining report chapters.</li>
+           <li><strong>De-scoped (post-PSM2):</strong> Multiplayer, save-slot system, extra levels — noted in "future work", not blocking the defense.</li>
+         </ul>` },
+
       { label: '// TECH STACK', heading: 'Tools used', techs: ['Unity 6 URP', 'C#', 'Blender', 'Figma', 'Visual Studio 2022', 'GitHub', 'Serious Game Design'] },
       { label: '// LEARNINGS', heading: 'What I learned', body:
         `<ul>
@@ -78,6 +87,90 @@ window.JEEVEN_DETAILS = {
     actions: [
       { label: 'WATCH GAMEPLAY', href: 'https://youtu.be/nqNphGQWkg8', icon: 'play-circle', primary: true },
       { label: 'VIEW REPO',      href: 'https://github.com/Jvn1604',   icon: 'github' },
+    ],
+  },
+
+  'project/universal-death-counter': {
+    type: 'project',
+    label: 'PROJECT · OPEN SOURCE · SHIPPED v1.0',
+    title: 'Universal Death Counter',
+    subtitle: 'Python · PySide6 · SQLite · MIT · github.com/Jvn1604/UniversalDeathCounter',
+    cover: 'https://github.com/Jvn1604/UniversalDeathCounter/raw/main/assets/icons/readme_banner.png',
+    desc: 'An open-source cross-platform desktop death counter for <strong>Soulslike games, challenge runs and speedruns</strong>. Built for streamers, challenge runners and anyone who needs to know exactly how many times Malenia has humbled them. Works with <em>any</em> game — no memory reading, no injection, no telemetry, 100% local.',
+    meta: {
+      STATUS:  'Shipped · v1.0',
+      LICENSE: 'MIT',
+      ROLE:    'Solo developer',
+      STACK:   'Python 3.12 + PySide6',
+      PERSIST: 'SQLite (event-sourced)',
+      PLATFORM: 'Windows · macOS · Linux',
+    },
+    tags: ['Python', 'PySide6', 'Qt', 'SQLite', 'Desktop App', 'OBS', 'Open Source', 'MIT', 'Cross-Platform', 'Soulslike'],
+    media: [
+      { type: 'image', src: 'https://github.com/Jvn1604/UniversalDeathCounter/raw/main/assets/icons/readme_banner.png', caption: 'README banner — Universal Death Counter v1.0' },
+      { type: 'image', src: 'assets/media/projects/universal-death-counter/01-main-window.jpg', caption: 'Main window · game & boss dropdowns · +1/-1/Undo counter' },
+      { type: 'image', src: 'assets/media/projects/universal-death-counter/02-overlay.jpg',     caption: 'Transparent frameless OBS overlay (F12 to toggle)' },
+      { type: 'image', src: 'assets/media/projects/universal-death-counter/03-statistics.jpg',  caption: 'Statistics dialog · most/least deaths, per-boss breakdown' },
+      { type: 'image', src: 'assets/media/projects/universal-death-counter/04-boss-manager.jpg',caption: 'Games &amp; Bosses manager · organise counters per game' },
+    ],
+    sections: [
+      { label: '// THE PROBLEM', heading: 'Death counters shouldn\'t need memory-reading hacks', body:
+        `<p>Soulslike streamers, challenge runners and speedrunners need to know exactly how many times a boss has killed them. Existing tools either work with one specific game via memory reading (which breaks every patch), or force you to keep a tally on paper.</p>
+         <p>I wanted one counter that works with <em>any</em> game — manual, reliable, and OBS-ready. So I built one.</p>` },
+
+      { label: '// THE APPROACH', heading: 'Manual + global hotkeys + OBS overlay', body:
+        `<p>A small PySide6 desktop app with a transparent, frameless overlay window designed for OBS Window Capture. Global hotkeys work while your game is focused — you never alt-tab:</p>
+         <ul>
+           <li><strong>F9</strong> — +1 death</li>
+           <li><strong>F10</strong> — −1 (fixed a miscount)</li>
+           <li><strong>F11</strong> — Undo last action</li>
+           <li><strong>F12</strong> — Toggle overlay visibility</li>
+         </ul>
+         <p>Every action autosaves to a local SQLite database. Nothing is ever sent to a server.</p>` },
+
+      { label: '// ARCHITECTURE', heading: 'What makes this interesting', body:
+        `<p><strong>Event-sourced death counting.</strong> Instead of storing a single mutable counter, every +1 / −1 is appended to a <em>death_events</em> table with a signed delta. Totals, session counts and undo are all derived by aggregating this log. This gives me:</p>
+         <ul>
+           <li><strong>Accurate undo</strong> — just delete the last event</li>
+           <li><strong>Full audit trail</strong> — every action timestamped</li>
+           <li><strong>CSV/JSON export for free</strong> — no schema changes needed</li>
+         </ul>
+         <p><strong>Single SQL boundary.</strong> <em>src/database/database.py</em> is the <em>only</em> module in the codebase that writes raw SQL. CounterManager, SessionManager and StatisticsService all build on top of it — so if v2 ever needs PostgreSQL for cloud sync, the business logic doesn't have to move.</p>
+         <p><strong>Hotkeys decoupled from UI.</strong> HotkeyManager emits Qt signals. Both the on-screen buttons and the global hotkeys call the exact same CounterManager methods — behavior is guaranteed identical no matter how the user triggers the action.</p>
+         <p><strong>Plugin-ready by design.</strong> v1.0 is 100% manual, but the manager classes already expose everything a future OCR auto-detect ("YOU DIED" recognition), memory reading, or Discord Rich Presence plugin would need. No refactor required to add them later.</p>` },
+
+      { label: '// SHIPPED FEATURES (v1.0)', heading: 'What\'s in the box', body:
+        `<ul>
+           <li>Manual counter with +1 / −1 / Undo</li>
+           <li>Session counter (this run) + Total counter (all time) tracked separately</li>
+           <li>Games &amp; Bosses manager — organise counters per game, per boss/segment</li>
+           <li>Global hotkeys (F9–F12) that work while your game is focused</li>
+           <li>Transparent frameless OBS overlay — drop it into Window Capture and go</li>
+           <li>Statistics dialog — most/least deaths per boss, average, most played game, total sessions</li>
+           <li>Dark and Light themes (Steam / Discord / Windows 11 inspired) via QSS stylesheets</li>
+           <li>Autosave to SQLite on every action — no save button</li>
+           <li>Fully local, 100% offline, no telemetry</li>
+           <li>pytest test suite in <em>tests/</em></li>
+           <li>PyInstaller-packagable to a single standalone <em>.exe</em></li>
+         </ul>` },
+
+      { label: '// TECH STACK', heading: 'Tools used', techs: ['Python 3.12', 'PySide6 (Qt for Python)', 'SQLite', 'keyboard (global hotkeys)', 'QSS stylesheets', 'pytest', 'PyInstaller'] },
+
+      { label: '// ROADMAP', heading: 'What\'s next', body:
+        `<p><strong>v1.5</strong> — CSV / JSON import &amp; export · additional themes · death-over-time graphs.</p>
+         <p><strong>v2.0</strong> — OCR-based automatic death detection ("YOU DIED", "DEMISE", "DEFEAT") · formal plugin API for memory reading, Steam integration, and Discord Rich Presence.</p>` },
+
+      { label: '// LEARNINGS', heading: 'What I took away', body:
+        `<ul>
+           <li>Event-sourcing felt like overkill for a death counter — until it made undo trivial and export free. Small architectural choices compound.</li>
+           <li>Cross-platform desktop means cross-platform quirks — global hotkeys need root on Linux but work out-of-the-box on Windows.</li>
+           <li>Making a project genuinely open-source (MIT, README, roadmap, contribution guide, tests) is ~30% more work than just shipping the code — but that's how a "personal project" becomes a "portfolio piece."</li>
+         </ul>` },
+    ],
+    actions: [
+      { label: 'VIEW REPO',    href: 'https://github.com/Jvn1604/UniversalDeathCounter', icon: 'github', primary: true },
+      { label: 'DOWNLOAD ZIP', href: 'https://github.com/Jvn1604/UniversalDeathCounter/archive/refs/heads/main.zip', icon: 'download' },
+      { label: 'LICENSE',      href: 'https://github.com/Jvn1604/UniversalDeathCounter/blob/main/LICENSE', icon: 'file-text' },
     ],
   },
 
@@ -431,17 +524,18 @@ window.JEEVEN_DETAILS = {
 
   'achievement/escape-the-debt': {
     type: 'achievement',
-    label: 'ACHIEVEMENT · LIVE',
-    title: 'Escape The Debt — FYP in Production',
-    subtitle: 'UTeM Final Year Project · 2025 — 2026',
+    label: 'ACHIEVEMENT · LIVE · 90% COMPLETE',
+    title: 'Escape The Debt — PSM1 Shipped',
+    subtitle: 'UTeM Final Year Project · PSM1 ✓ · PSM2 in progress · 2025 — 2026',
     cover: 'assets/media/achievements/escape-the-debt/cover.jpg',
-    desc: 'Solo-shipping a Unity 6 URP serious game teaching debt management to Malaysian undergrads. 3 levels (PTPTN · Credit Card · BNPL), 5 game systems, custom HUD &amp; inventory.',
-    meta: { ROLE: 'Solo Dev', ENGINE: 'Unity 6 URP', STATUS: 'In production', CONTEXT: 'UTeM · FYP' },
-    tags: ['Unity 6', 'Solo Dev', 'FYP', 'Serious Game'],
+    desc: 'Solo-shipping a Unity 6 URP serious game teaching debt management to Malaysian undergrads. <strong>PSM1 milestone shipped</strong> — three playable levels (PTPTN · Credit Card · BNPL), 5 game systems, custom HUD &amp; inventory. Currently 90% overall; PSM2 polish + defense scene in progress.',
+    meta: { ROLE: 'Solo Dev', ENGINE: 'Unity 6 URP', STATUS: 'PSM1 ✓ · PSM2 in progress', PROGRESS: '90%', CONTEXT: 'UTeM · FYP' },
+    tags: ['Unity 6', 'Solo Dev', 'FYP', 'PSM1 ✓', 'Serious Game'],
     media: [],
     sections: [
       { label: '// PROGRESS', heading: 'Where it stands', body:
-        `<p>Core systems shipped (HUD V3, Kayal Organizer, three meters). Currently iterating on Level 1 puzzle design and the Results/Defense scene. Target completion: mid-2026.</p>` },
+        `<p><strong>PSM1 shipped:</strong> Three levels playable end-to-end. Five core systems (Income, Debt, Pending Instalments, DebtTicker, Kayal Organizer) locked in. HUD V3, main menu, and Kayal Organizer inventory all shipped. Report Chapters 1 &amp; 3 done.</p>
+         <p><strong>PSM2 remaining (~10%):</strong> Results scene, defense scene, sound design pass, playtest revisions, and the last three report chapters. Target defense: mid-2026.</p>` },
     ],
     actions: [{ label: 'VIEW PROJECT', href: '#detail=project/escape-the-debt', icon: 'gamepad-2', primary: true }],
   },
