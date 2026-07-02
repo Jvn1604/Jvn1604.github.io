@@ -4,15 +4,15 @@
    Edit any entry below to update its detail page.
    Add new entries by following the same shape.
 
-   IMAGE PATHS expect this structure (PNG/JPG, missing files
+   IMAGE PATHS expect this structure (PNG format · missing files
    gracefully show "no media" placeholders):
 
      assets/media/
-       projects/<slug>/cover.jpg
-       projects/<slug>/01-<name>.jpg, 02-…, 03-…
-       experience/<slug>/cover.jpg + 01-…
-       education/<slug>/cover.jpg + certificate.jpg
-       achievements/<slug>/cover.jpg + certificate.jpg
+       projects/<slug>/cover.png
+       projects/<slug>/01-<name>.png, 02-…, 03-…
+       experience/<slug>/cover.png + 01-…
+       education/<slug>/cover.png + certificate.png
+       achievements/<slug>/cover.png + certificate.png
 
    See ASSETS_STRUCTURE.md for the full naming convention.
    ═══════════════════════════════════════════════════════════════ */
@@ -26,7 +26,7 @@ window.JEEVEN_DETAILS = {
     label: 'PROJECT · FEATURED · PSM1 ✓ · PSM2 IN PROGRESS · 90%',
     title: 'Escape The Debt',
     subtitle: 'Unity 6 URP · First-Person Serious Game · UTeM FYP · PSM1 shipped, PSM2 in polish',
-    cover: 'assets/media/projects/escape-the-debt/cover.jpg',
+    cover: 'assets/media/projects/escape-the-debt/cover.png',
     desc: 'A first-person serious-game prototype that teaches Malaysian undergrads (20–25 y/o) about debt management. Players guide <strong>Kayal</strong> through three escape-room levels: the PTPTN Office, a Credit Card Dungeon, and a BNPL Shopping Trap — solving puzzles around compounding interest, repayment paths and stress management. <strong>PSM1 has shipped</strong> — three playable levels + 5 game systems. Now iterating on PSM2 polish and defense.',
     meta: {
       STATUS:  'PSM1 shipped · PSM2 in progress',
@@ -42,12 +42,12 @@ window.JEEVEN_DETAILS = {
       { type: 'video', embed: 'https://www.youtube.com/embed/nqNphGQWkg8',
         thumb: 'https://img.youtube.com/vi/nqNphGQWkg8/hqdefault.jpg',
         caption: 'Gameplay Demo — full walkthrough on YouTube' },
-      { type: 'image', src: 'assets/media/projects/escape-the-debt/01-main-menu.jpg',  caption: 'Main Menu — Duelyst-inspired holographic aesthetic' },
-      { type: 'image', src: 'assets/media/projects/escape-the-debt/02-kayal-organizer.jpg', caption: 'Kayal Organizer — inventory modal with 4 colour-coded tabs' },
-      { type: 'image', src: 'assets/media/projects/escape-the-debt/03-hud-v3.jpg',     caption: 'HUD V3 — stress gradient bar, day pill, event feed' },
-      { type: 'image', src: 'assets/media/projects/escape-the-debt/04-ptptn-office.jpg', caption: 'Level 1 — PTPTN Office puzzle room' },
-      { type: 'image', src: 'assets/media/projects/escape-the-debt/05-credit-card.jpg', caption: 'Level 2 — Credit Card Dungeon (interest = closing walls)' },
-      { type: 'image', src: 'assets/media/projects/escape-the-debt/06-bnpl-trap.jpg',  caption: 'Level 3 — BNPL Shopping Trap' },
+      { type: 'image', src: 'assets/media/projects/escape-the-debt/01-main-menu.png',  caption: 'Main Menu — Duelyst-inspired holographic aesthetic' },
+      { type: 'image', src: 'assets/media/projects/escape-the-debt/02-kayal-organizer.png', caption: 'Kayal Organizer — inventory modal with 4 colour-coded tabs' },
+      { type: 'image', src: 'assets/media/projects/escape-the-debt/03-hud-v3.png',     caption: 'HUD V3 — stress gradient bar, day pill, event feed' },
+      { type: 'image', src: 'assets/media/projects/escape-the-debt/04-ptptn-office.png', caption: 'Level 1 — PTPTN Office puzzle room' },
+      { type: 'image', src: 'assets/media/projects/escape-the-debt/05-credit-card.png', caption: 'Level 2 — Credit Card Dungeon (interest = closing walls)' },
+      { type: 'image', src: 'assets/media/projects/escape-the-debt/06-bnpl-trap.png',  caption: 'Level 3 — BNPL Shopping Trap' },
     ],
     sections: [
       { label: '// THE PROBLEM', heading: 'Why this game exists', body:
@@ -108,10 +108,10 @@ window.JEEVEN_DETAILS = {
     tags: ['Python', 'PySide6', 'Qt', 'SQLite', 'Desktop App', 'OBS', 'Open Source', 'MIT', 'Cross-Platform', 'Soulslike'],
     media: [
       { type: 'image', src: 'https://github.com/Jvn1604/UniversalDeathCounter/raw/main/assets/icons/readme_banner.png', caption: 'README banner — Universal Death Counter v1.0' },
-      { type: 'image', src: 'assets/media/projects/universal-death-counter/01-main-window.jpg', caption: 'Main window · game & boss dropdowns · +1/-1/Undo counter' },
-      { type: 'image', src: 'assets/media/projects/universal-death-counter/02-overlay.jpg',     caption: 'Transparent frameless OBS overlay (F12 to toggle)' },
-      { type: 'image', src: 'assets/media/projects/universal-death-counter/03-statistics.jpg',  caption: 'Statistics dialog · most/least deaths, per-boss breakdown' },
-      { type: 'image', src: 'assets/media/projects/universal-death-counter/04-boss-manager.jpg',caption: 'Games &amp; Bosses manager · organise counters per game' },
+      { type: 'image', src: 'assets/media/projects/universal-death-counter/01-main-window.png', caption: 'Main window · game & boss dropdowns · +1/-1/Undo counter' },
+      { type: 'image', src: 'assets/media/projects/universal-death-counter/02-overlay.png',     caption: 'Transparent frameless OBS overlay (F12 to toggle)' },
+      { type: 'image', src: 'assets/media/projects/universal-death-counter/03-statistics.png',  caption: 'Statistics dialog · most/least deaths, per-boss breakdown' },
+      { type: 'image', src: 'assets/media/projects/universal-death-counter/04-boss-manager.png',caption: 'Games &amp; Bosses manager · organise counters per game' },
     ],
     sections: [
       { label: '// THE PROBLEM', heading: 'Death counters shouldn\'t need memory-reading hacks', body:
@@ -174,12 +174,142 @@ window.JEEVEN_DETAILS = {
     ],
   },
 
+  'project/content-creator-assets-dataset': {
+    type: 'project',
+    label: 'PROJECT · OPEN SOURCE · DATASET + PROCEDURAL SVG',
+    title: 'Content Creator Assets Dataset',
+    subtitle: 'Python · Procedural SVG · Public Dataset · github.com/Jvn1604/content-creator-assets-dataset',
+    cover: 'assets/media/projects/content-creator-assets-dataset/cover.png',
+    desc: 'A structured public dataset of <strong>50 content-creator broadcast graphics</strong> — overlays, scene transitions, lower-thirds, alerts, panels, intro/outro stings, and font kits. Each entry carries style tags, target platforms, a colour palette, animation type, recommended use case, and an illustrative <em>"retention tier"</em> annotation exploring how visual/motion choices might relate to viewer attention on gaming channels. Every preview thumbnail is an <strong>original, procedurally-generated SVG</strong> — nothing scraped, redistributed, or reproduced.',
+    meta: {
+      STATUS:  'Public · v1.0',
+      ROLE:    'Solo · Dataset engineer',
+      STACK:   'Python · procedural SVG · HTML',
+      ENTRIES: '50 broadcast graphics',
+      OUTPUT:  'JSON + SVG previews + browser',
+      NOTE:    '100% original artwork',
+    },
+    tags: ['Python', 'Dataset', 'Procedural Graphics', 'SVG', 'Content Creation', 'Open Data', 'Streaming', 'Public'],
+    media: [
+      { type: 'image', src: 'assets/media/projects/content-creator-assets-dataset/01-browser.png', caption: 'Browse-the-dataset landing page' },
+      { type: 'image', src: 'assets/media/projects/content-creator-assets-dataset/02-preview-grid.png', caption: 'Procedurally-generated SVG previews · gallery view' },
+      { type: 'image', src: 'assets/media/projects/content-creator-assets-dataset/03-entry-detail.png', caption: 'Entry detail · tags, palette, retention tier' },
+      { type: 'image', src: 'assets/media/projects/content-creator-assets-dataset/04-setup-guide.png', caption: 'Database / API setup guide' },
+    ],
+    sections: [
+      { label: '// WHY THIS EXISTS', heading: 'Datasets on stream aesthetics don\'t really exist', body:
+        `<p>There are datasets for game mechanics, chat sentiment and viewer counts — but almost nothing structured on the <em>visual layer</em> of a gaming stream. Overlays, scene transitions, lower-thirds, and alert graphics all measurably affect retention, but you can't study what you can't measure.</p>
+         <p>I built this to fill that gap: 50 hand-designed broadcast graphics, each tagged, palette-annotated and given a retention-tier hypothesis for future study.</p>` },
+      { label: '// THE DATA', heading: '50 entries across 7 categories', body:
+        `<ul>
+           <li><strong>Overlays</strong> · webcam frames, scoreboards, HUDs</li>
+           <li><strong>Scene transitions</strong> · stingers, wipes, cinematics</li>
+           <li><strong>Lower-thirds</strong> · name plates, sponsorship bars</li>
+           <li><strong>Alerts</strong> · follow / subscribe / donation graphics</li>
+           <li><strong>Panels</strong> · about, schedule, socials</li>
+           <li><strong>Intro / outro stings</strong> · short opening/closing motion pieces</li>
+           <li><strong>Font kits</strong> · display + body pairings tuned for on-stream legibility</li>
+         </ul>
+         <p>Each entry has: <em>id, name, category, style tags, target platforms, colour palette, animation type, recommended use case, retention tier, preview_path</em>.</p>` },
+      { label: '// ORIGINALITY', heading: 'Every preview is procedurally generated', body:
+        `<p>The whole point of a dataset that can be redistributed openly is that <em>nothing</em> in it can be someone else's IP. Every preview thumbnail is generated at build time by <em>generate_previews.py</em> using Python + procedural SVG — no third-party overlay packs, no scraped Twitch assets, no borrowed fonts.</p>
+         <p>Consequence: the whole repo can be forked, remixed, and studied without any copyright landmines.</p>` },
+      { label: '// PIPELINE', heading: 'How a build works', body:
+        `<ol>
+           <li><em>generate_data.py</em> assembles the 50 entries into a canonical JSON dataset (data/)</li>
+           <li><em>generate_previews.py</em> procedurally emits an SVG preview for each entry (assets/previews/)</li>
+           <li><em>index.html</em> renders the dataset as a browsable gallery</li>
+           <li><em>setup.html</em> documents the database / API integration path</li>
+         </ol>` },
+      { label: '// TECH STACK', heading: 'Tools used', techs: ['Python', 'Procedural SVG generation', 'JSON schema', 'HTML/CSS/JS (browser)', 'MIT-friendly workflow'] },
+      { label: '// LEARNINGS', heading: 'What I took away', body:
+        `<ul>
+           <li>Datasets are 20% collection, 80% documentation. The README + license work is what turns a folder of files into a <em>usable</em> dataset.</li>
+           <li>Procedural asset generation forces you to think about design as parameters, not decisions. That reframing was worth the whole project.</li>
+           <li>"Retention tier" is a hypothesis, not a fact — labelled that way in the schema so future researchers don't take it as measured ground truth.</li>
+         </ul>` },
+    ],
+    actions: [
+      { label: 'VIEW REPO',       href: 'https://github.com/Jvn1604/content-creator-assets-dataset', icon: 'github', primary: true },
+      { label: 'BROWSE DATASET',  href: 'https://Jvn1604.github.io/content-creator-assets-dataset/', icon: 'external-link' },
+      { label: 'LICENSE',         href: 'https://github.com/Jvn1604/content-creator-assets-dataset/blob/main/LICENSE', icon: 'file-text' },
+    ],
+  },
+
+  'project/game-deals-scraper': {
+    type: 'project',
+    label: 'PROJECT · OPEN SOURCE · FULL-STACK PYTHON · DEPLOYED',
+    title: 'Game Deals Scraper',
+    subtitle: 'Python · BeautifulSoup · Flask · Docker · CheapShark API',
+    cover: 'assets/media/projects/game-deals-scraper/cover.png',
+    desc: 'A <strong>Python + BeautifulSoup scraper</strong> that pulls currently-discounted games from <strong>Steam</strong> and the <strong>CheapShark cross-store API</strong> (GOG, Epic, Humble, Fanatical, etc.), and a <strong>Flask dashboard</strong> that displays them with search, filters, sorting, price-history sparklines, and a price-target watchlist. Scheduled refresh via APScheduler, containerised with Docker, deployable to Render / Heroku via included <em>Procfile</em> and <em>render.yaml</em>.',
+    meta: {
+      STATUS:   'Public · v1.0',
+      ROLE:     'Solo full-stack developer',
+      STACK:    'Python · Flask · SQLite · BeautifulSoup',
+      SOURCES:  'Steam + CheapShark cross-store',
+      DEPLOY:   'Docker · Render · Heroku · GitHub Pages',
+      CI_CD:    'GitHub Actions workflow',
+    },
+    tags: ['Python', 'Flask', 'BeautifulSoup', 'Web Scraping', 'REST API', 'Docker', 'SQLite', 'CI/CD', 'Full-Stack', 'Open Source'],
+    media: [
+      { type: 'image', src: 'assets/media/projects/game-deals-scraper/01-dashboard.png', caption: 'Flask dashboard · discounted games grid' },
+      { type: 'image', src: 'assets/media/projects/game-deals-scraper/02-filters.png',   caption: 'Search, sort, filter by store &amp; discount %' },
+      { type: 'image', src: 'assets/media/projects/game-deals-scraper/03-price-history.png', caption: 'Price-history sparklines per game' },
+      { type: 'image', src: 'assets/media/projects/game-deals-scraper/04-watchlist.png',  caption: 'Price-target watchlist · notify when a game hits your target' },
+    ],
+    sections: [
+      { label: '// PROBLEM', heading: 'Deal-tracking is fragmented across 6+ storefronts', body:
+        `<p>Anyone who plays PC games has felt this: Steam has one sale, Epic has another, GOG a third, Humble a fourth. Cross-store deal aggregators exist (IsThereAnyDeal, CheapShark) but you're still tab-hopping — and none of them let you set price targets across stores from a single dashboard.</p>` },
+
+      { label: '// APPROACH', heading: 'One dashboard, many stores', body:
+        `<ul>
+           <li><strong>scraper.py</strong> — BeautifulSoup + requests scrapes Steam's discount pages directly</li>
+           <li><strong>cheapshark.py</strong> — wraps the CheapShark REST API for cross-store coverage (GOG, Epic, Humble, Fanatical, Fanatical, Green Man Gaming…)</li>
+           <li><strong>scheduler.py</strong> — APScheduler runs the pipeline on a cron interval so the dashboard is always fresh</li>
+           <li><strong>db.py</strong> — SQLite persistence layer with price-history snapshots</li>
+           <li><strong>app.py</strong> — Flask dashboard: search · sort · filter · sparklines · watchlist</li>
+         </ul>` },
+
+      { label: '// DEPLOYMENT', heading: 'One repo, three deploy paths', body:
+        `<ul>
+           <li><strong>Dockerfile + docker-compose.yml</strong> — spin up the whole stack with <code>docker compose up</code></li>
+           <li><strong>Procfile</strong> — Heroku-ready (<em>web: gunicorn app:app</em> + scheduler dyno)</li>
+           <li><strong>render.yaml</strong> — Render Blueprint config, one-click deploy</li>
+           <li><strong>.github/workflows</strong> — GitHub Actions runs the test suite on every push</li>
+         </ul>` },
+
+      { label: '// STATS', heading: 'What the pipeline handles', stats: [
+          { label: 'STORES',     val: '6+ (via CheapShark)' },
+          { label: 'REFRESH',    val: 'Scheduled (APScheduler)' },
+          { label: 'PERSIST',    val: 'SQLite + price history' },
+          { label: 'CI',         val: 'GitHub Actions' },
+          { label: 'DEPLOY',     val: 'Docker / Render / Heroku' },
+          { label: 'FRONTEND',   val: 'Flask + Jinja + vanilla JS' },
+      ]},
+
+      { label: '// TECH STACK', heading: 'Tools used', techs: ['Python 3', 'Flask', 'BeautifulSoup 4', 'requests', 'SQLite', 'APScheduler', 'Jinja2', 'Docker', 'docker-compose', 'GitHub Actions', 'Render / Heroku'] },
+
+      { label: '// LEARNINGS', heading: 'What I took away', body:
+        `<ul>
+           <li>Scraping Steam politely means respecting rate limits and cache headers — the scraper is a good citizen by design.</li>
+           <li>APIs (CheapShark) are always cheaper than scraping when they exist — code that mixes both is realistic full-stack.</li>
+           <li>Shipping deploy configs (Dockerfile, Procfile, render.yaml) alongside code is the difference between "personal project" and "portfolio-grade project."</li>
+           <li>Sparklines are the cheapest UI upgrade in web dev. 20 lines of SVG, huge information density boost.</li>
+         </ul>` },
+    ],
+    actions: [
+      { label: 'VIEW REPO', href: 'https://github.com/Jvn1604/game-deals-scraper', icon: 'github', primary: true },
+      { label: 'DOWNLOAD ZIP', href: 'https://github.com/Jvn1604/game-deals-scraper/archive/refs/heads/main.zip', icon: 'download' },
+    ],
+  },
+
   'project/blind-test-system': {
     type: 'project',
     label: 'PROJECT',
     title: 'Blind Test System',
     subtitle: 'Django · QA Automation · Deployed at Top Glove',
-    cover: 'assets/media/projects/blind-test-system/cover.jpg',
+    cover: 'assets/media/projects/blind-test-system/cover.png',
     desc: 'An internal Django web application that replaced a fully paper-based QA blind-testing process at <strong>Top Glove Sdn. Bhd.</strong> — the world\'s largest rubber glove manufacturer.',
     meta: {
       STATUS:  'Deployed',
@@ -190,9 +320,9 @@ window.JEEVEN_DETAILS = {
     },
     tags: ['Python', 'Django', 'MySQL', 'Bootstrap 5', 'Internal Tool', 'Industrial'],
     media: [
-      { type: 'image', src: 'assets/media/projects/blind-test-system/01-dashboard.jpg',  caption: 'Supervisor dashboard' },
-      { type: 'image', src: 'assets/media/projects/blind-test-system/02-test-form.jpg',  caption: 'Operator blind-test form (tablet-optimised)' },
-      { type: 'image', src: 'assets/media/projects/blind-test-system/03-results.jpg',    caption: 'Results &amp; report export' },
+      { type: 'image', src: 'assets/media/projects/blind-test-system/01-dashboard.png',  caption: 'Supervisor dashboard' },
+      { type: 'image', src: 'assets/media/projects/blind-test-system/02-test-form.png',  caption: 'Operator blind-test form (tablet-optimised)' },
+      { type: 'image', src: 'assets/media/projects/blind-test-system/03-results.png',    caption: 'Results &amp; report export' },
     ],
     sections: [
       { label: '// THE PROBLEM', heading: 'Paper QA at scale doesn\'t scale', body:
@@ -230,7 +360,7 @@ window.JEEVEN_DETAILS = {
     label: 'PROJECT · DIPLOMA FYP',
     title: 'Biometric Attendance & Payroll System',
     subtitle: 'PHP / MySQL · Hardware + Software · Politeknik Mersing',
-    cover: 'assets/media/projects/biometric-attendance/cover.jpg',
+    cover: 'assets/media/projects/biometric-attendance/cover.png',
     desc: 'Final-year project for the Diploma in Digital Technology. Automated employee attendance via fingerprint scanning, with overtime and monthly payroll computation in an admin dashboard.',
     meta: {
       STATUS:  'Shipped (Diploma FYP)',
@@ -241,8 +371,8 @@ window.JEEVEN_DETAILS = {
     },
     tags: ['PHP', 'MySQL', 'HTML', 'Fingerprint', 'Hardware', 'Payroll'],
     media: [
-      { type: 'image', src: 'assets/media/projects/biometric-attendance/01-fingerprint.jpg', caption: 'Fingerprint scanner integration' },
-      { type: 'image', src: 'assets/media/projects/biometric-attendance/02-dashboard.jpg',   caption: 'Admin payroll dashboard' },
+      { type: 'image', src: 'assets/media/projects/biometric-attendance/01-fingerprint.png', caption: 'Fingerprint scanner integration' },
+      { type: 'image', src: 'assets/media/projects/biometric-attendance/02-dashboard.png',   caption: 'Admin payroll dashboard' },
     ],
     sections: [
       { label: '// SUMMARY', heading: 'What it does', body:
@@ -259,12 +389,12 @@ window.JEEVEN_DETAILS = {
     label: 'PROJECT · WORK',
     title: 'SVC Global Company Website',
     subtitle: 'HTML · CSS · JavaScript · Astro broadcast affiliate',
-    cover: 'assets/media/projects/svc-global-website/cover.jpg',
+    cover: 'assets/media/projects/svc-global-website/cover.png',
     desc: 'Designed and shipped a professional company website for an Astro broadcast affiliate. Focused on brand presentation, service comms and lead capture.',
     meta: { STATUS: 'Shipped', ROLE: 'Designer + Dev', CONTEXT: 'SVC Global (Marketing Exec)', YEAR: '2022—2023' },
     tags: ['HTML', 'CSS', 'JavaScript', 'Marketing', 'Brand'],
     media: [
-      { type: 'image', src: 'assets/media/projects/svc-global-website/01-homepage.jpg', caption: 'Homepage' },
+      { type: 'image', src: 'assets/media/projects/svc-global-website/01-homepage.png', caption: 'Homepage' },
     ],
     sections: [
       { label: '// SUMMARY', heading: 'What it does', body:
@@ -281,12 +411,12 @@ window.JEEVEN_DETAILS = {
     label: 'PROJECT · ACADEMIC',
     title: 'Library Management System',
     subtitle: 'C / C++ · UTeM Workshop I',
-    cover: 'assets/media/projects/library-management-system/cover.jpg',
+    cover: 'assets/media/projects/library-management-system/cover.png',
     desc: 'Console-based Library Borrowing System in C/C++. Full CRUD, Admin + User modules, automated due-date tracking, overdue penalties and hardened input validation.',
     meta: { STATUS: 'Shipped (Course)', ROLE: 'Solo developer', CONTEXT: 'UTeM Workshop I', YEAR: '2024' },
     tags: ['C', 'C++', 'CRUD', 'Console App'],
     media: [
-      { type: 'image', src: 'assets/media/projects/library-management-system/01-console.jpg', caption: 'Console UI' },
+      { type: 'image', src: 'assets/media/projects/library-management-system/01-console.png', caption: 'Console UI' },
     ],
     sections: [
       { label: '// SUMMARY', heading: 'What it does', body:
@@ -303,13 +433,13 @@ window.JEEVEN_DETAILS = {
     label: 'PROJECT · VR · TEAM',
     title: 'Wheel of Consequences — VR Quiz Game',
     subtitle: 'Unity · SteamVR · UTeM Workshop II',
-    cover: 'assets/media/projects/wheel-of-consequences/cover.jpg',
+    cover: 'assets/media/projects/wheel-of-consequences/cover.png',
     desc: 'VR quiz game built in a 4-person team. As <strong>Game Designer</strong>, I owned phase-based progression, branching UI, scoring + penalty logic, and full UI/UX flowboards across 7 knowledge categories.',
     meta: { STATUS: 'Shipped (Course)', ROLE: 'Game Designer', TEAM: '4 members', CONTEXT: 'UTeM Workshop II', YEAR: '2024' },
     tags: ['Unity', 'C#', 'SteamVR', 'VR', 'Game Design', 'Team Project'],
     media: [
-      { type: 'image', src: 'assets/media/projects/wheel-of-consequences/01-vr-setup.jpg', caption: 'In-VR view' },
-      { type: 'image', src: 'assets/media/projects/wheel-of-consequences/02-quiz-ui.jpg',  caption: 'Quiz UI flow' },
+      { type: 'image', src: 'assets/media/projects/wheel-of-consequences/01-vr-setup.png', caption: 'In-VR view' },
+      { type: 'image', src: 'assets/media/projects/wheel-of-consequences/02-quiz-ui.png',  caption: 'Quiz UI flow' },
     ],
     sections: [
       { label: '// MY ROLE', heading: 'Game Designer', body:
@@ -328,7 +458,7 @@ window.JEEVEN_DETAILS = {
     label: 'EXPERIENCE · INDUSTRIAL TRAINING',
     title: 'Top Glove Sdn. Bhd.',
     subtitle: 'Industrial Training Intern · QA Department · Mar — Jul 2022',
-    cover: 'assets/media/experience/top-glove/cover.jpg',
+    cover: 'assets/media/experience/top-glove/cover.png',
     desc: 'Five-month industrial training at <strong>Top Glove</strong> — the world\'s largest rubber glove manufacturer. Posted to the QA Department.',
     meta: {
       ROLE:     'QA Intern',
@@ -338,8 +468,8 @@ window.JEEVEN_DETAILS = {
     },
     tags: ['Internship', 'QA', 'Python', 'Django', 'MySQL', 'Industrial'],
     media: [
-      { type: 'image', src: 'assets/media/experience/top-glove/01-qa-lab.jpg',  caption: 'QA department' },
-      { type: 'image', src: 'assets/media/experience/top-glove/02-system.jpg',  caption: 'Blind Test System (the deliverable)' },
+      { type: 'image', src: 'assets/media/experience/top-glove/01-qa-lab.png',  caption: 'QA department' },
+      { type: 'image', src: 'assets/media/experience/top-glove/02-system.png',  caption: 'Blind Test System (the deliverable)' },
     ],
     sections: [
       { label: '// THE BRIEF', heading: 'What I was asked to do', body:
@@ -363,12 +493,12 @@ window.JEEVEN_DETAILS = {
     label: 'EXPERIENCE · FULL-TIME',
     title: 'SVC Global',
     subtitle: 'Marketing Executive · Astro broadcast affiliate · Oct 2022 — 2023',
-    cover: 'assets/media/experience/svc-global/cover.jpg',
+    cover: 'assets/media/experience/svc-global/cover.png',
     desc: 'Marketing Executive role at SVC Global — an Astro broadcast affiliate. Owned marketing operations and built the company website from scratch.',
     meta: { ROLE: 'Marketing Executive', DURATION: 'Oct 2022 — 2023', OUTPUT: 'Website + campaigns' },
     tags: ['Marketing', 'Web Dev', 'HTML/CSS/JS', 'Brand'],
     media: [
-      { type: 'image', src: 'assets/media/experience/svc-global/01-website.jpg', caption: 'Company website' },
+      { type: 'image', src: 'assets/media/experience/svc-global/01-website.png', caption: 'Company website' },
     ],
     sections: [
       { label: '// SCOPE', heading: 'What I owned', body:
@@ -386,7 +516,7 @@ window.JEEVEN_DETAILS = {
     label: 'EXPERIENCE · PART-TIME',
     title: 'SVC Tuisyen Centre',
     subtitle: 'Admin & IT Assistant',
-    cover: 'assets/media/experience/svc-tuisyen/cover.jpg',
+    cover: 'assets/media/experience/svc-tuisyen/cover.png',
     desc: 'Part-time admin and IT support role at SVC Tuisyen Centre.',
     meta: { ROLE: 'Admin · IT Assistant' },
     tags: ['Admin', 'IT Support'],
@@ -408,7 +538,7 @@ window.JEEVEN_DETAILS = {
     label: 'EDUCATION · UNIVERSITY · ONGOING',
     title: 'B. Information Technology (Game Technology)',
     subtitle: 'Universiti Teknikal Malaysia Melaka · UTeM · 2023 — present',
-    cover: 'assets/media/education/utem/cover.jpg',
+    cover: 'assets/media/education/utem/cover.png',
     desc: 'Year 3, Semester 2 of the <strong>Bachelor of Information Technology, specialising in Game Technology</strong> at UTeM. Currently in production on the Final Year Project.',
     meta: {
       DEGREE:      'B. IT (Game Technology)',
@@ -419,7 +549,7 @@ window.JEEVEN_DETAILS = {
     },
     tags: ['University', 'Game Tech', 'FYP', 'UTeM'],
     media: [
-      { type: 'image', src: 'assets/media/education/utem/01-campus.jpg', caption: 'UTeM campus' },
+      { type: 'image', src: 'assets/media/education/utem/01-campus.png', caption: 'UTeM campus' },
     ],
     sections: [
       { label: '// COURSEWORK', heading: 'Key courses', body:
@@ -440,7 +570,7 @@ window.JEEVEN_DETAILS = {
     label: 'EDUCATION · DIPLOMA · GRADUATED',
     title: 'Diploma in Digital Technology',
     subtitle: 'Politeknik Mersing · Graduated 2022',
-    cover: 'assets/media/education/politeknik-mersing/cover.jpg',
+    cover: 'assets/media/education/politeknik-mersing/cover.png',
     desc: 'Graduated with a Diploma in Digital Technology from Politeknik Mersing, achieving <strong>Dean\'s List × 2 consecutive semesters</strong>.',
     meta: {
       DEGREE:      'Diploma · Digital Tech',
@@ -450,8 +580,8 @@ window.JEEVEN_DETAILS = {
     },
     tags: ['Diploma', 'Dean\'s List', 'Politeknik Mersing'],
     media: [
-      { type: 'image', src: 'assets/media/education/politeknik-mersing/01-campus.jpg',       caption: 'Politeknik Mersing' },
-      { type: 'image', src: 'assets/media/education/politeknik-mersing/deans-list-cert.jpg', caption: 'Dean\'s List certificate' },
+      { type: 'image', src: 'assets/media/education/politeknik-mersing/01-campus.png',       caption: 'Politeknik Mersing' },
+      { type: 'image', src: 'assets/media/education/politeknik-mersing/deans-list-cert.png', caption: 'Dean\'s List certificate' },
     ],
     sections: [
       { label: '// COURSEWORK', heading: 'Focus areas', body:
@@ -474,12 +604,12 @@ window.JEEVEN_DETAILS = {
     label: 'ACHIEVEMENT · ACADEMIC',
     title: 'Dean\'s List × 2',
     subtitle: 'Politeknik Mersing · 2021 — 2022',
-    cover: 'assets/media/achievements/deans-list/cover.jpg',
+    cover: 'assets/media/achievements/deans-list/cover.png',
     desc: 'Top-tier academic standing for two consecutive semesters in the Diploma of Digital Technology programme.',
     meta: { TYPE: 'Academic Honour', INSTITUTION: 'Politeknik Mersing', SEMESTERS: '2 consecutive', YEARS: '2021 — 2022' },
     tags: ['Academic', 'Dean\'s List', 'GPA > 3.50'],
     media: [
-      { type: 'image', src: 'assets/media/achievements/deans-list/certificate.jpg', caption: 'Dean\'s List certificate' },
+      { type: 'image', src: 'assets/media/achievements/deans-list/certificate.png', caption: 'Dean\'s List certificate' },
     ],
     sections: [
       { label: '// CRITERIA', heading: 'What it means', body:
@@ -493,7 +623,7 @@ window.JEEVEN_DETAILS = {
     label: 'ACHIEVEMENT · INDUSTRY',
     title: 'QA System Deployed at Top Glove',
     subtitle: 'Industrial Training · 2022',
-    cover: 'assets/media/achievements/top-glove-shipped/cover.jpg',
+    cover: 'assets/media/achievements/top-glove-shipped/cover.png',
     desc: 'Built and deployed an internal Blind Test System (Django + MySQL + Bootstrap 5) that automated a fully manual QA workflow for the world\'s largest rubber glove manufacturer.',
     meta: { TYPE: 'Production Deployment', YEAR: '2022', CONTEXT: 'Industrial Training' },
     tags: ['Internship', 'Production', 'Django', 'MySQL'],
@@ -510,7 +640,7 @@ window.JEEVEN_DETAILS = {
     label: 'ACHIEVEMENT · TEAM',
     title: 'VR Game — Wheel of Consequences',
     subtitle: 'UTeM Workshop II · 4-person team · 2024',
-    cover: 'assets/media/achievements/wheel-of-consequences/cover.jpg',
+    cover: 'assets/media/achievements/wheel-of-consequences/cover.png',
     desc: 'Game Designer role on a SteamVR edutainment game across 7 knowledge categories — designed branching UI, phase progression, scoring & penalty logic.',
     meta: { ROLE: 'Game Designer', TEAM: '4', YEAR: '2024', CONTEXT: 'UTeM Workshop II' },
     tags: ['Game Design', 'SteamVR', 'Team Project'],
@@ -527,7 +657,7 @@ window.JEEVEN_DETAILS = {
     label: 'ACHIEVEMENT · LIVE · 90% COMPLETE',
     title: 'Escape The Debt — PSM1 Shipped',
     subtitle: 'UTeM Final Year Project · PSM1 ✓ · PSM2 in progress · 2025 — 2026',
-    cover: 'assets/media/achievements/escape-the-debt/cover.jpg',
+    cover: 'assets/media/achievements/escape-the-debt/cover.png',
     desc: 'Solo-shipping a Unity 6 URP serious game teaching debt management to Malaysian undergrads. <strong>PSM1 milestone shipped</strong> — three playable levels (PTPTN · Credit Card · BNPL), 5 game systems, custom HUD &amp; inventory. Currently 90% overall; PSM2 polish + defense scene in progress.',
     meta: { ROLE: 'Solo Dev', ENGINE: 'Unity 6 URP', STATUS: 'PSM1 ✓ · PSM2 in progress', PROGRESS: '90%', CONTEXT: 'UTeM · FYP' },
     tags: ['Unity 6', 'Solo Dev', 'FYP', 'PSM1 ✓', 'Serious Game'],
