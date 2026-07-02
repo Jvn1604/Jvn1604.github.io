@@ -636,14 +636,24 @@ Stack sits at the intersection of <span class="term-c">software · hardware · g
 Type <span class="term-y">cd about</span> for the full bio section.`);
     },
     projects: () => {
-      termWrite(`<span class="term-y">PROJECT INDEX:</span>
-  [01] <span class="term-c">Escape The Debt</span>            Unity 6 · FYP · in production
-  [02] <span class="term-c">Blind Test System</span>          Django · Top Glove (deployed)
-  [03] <span class="term-c">Biometric Attendance</span>       PHP/MySQL · Diploma FYP
-  [04] <span class="term-c">SVC Global Website</span>         HTML/CSS/JS
-  [05] <span class="term-c">Library Mgmt System</span>        C/C++ · UTeM Workshop I
-  [06] <span class="term-c">Wheel of Consequences</span>      Unity VR · UTeM Workshop II
-type <span class="term-y">cd projects</span> to view in page.`);
+      termWrite(`<span class="term-y">PROJECT INDEX (09 total):</span>
+
+<span class="term-c">// FEATURED</span>
+  [F]  <span class="term-c">Escape The Debt</span>            Unity 6 · FYP · PSM1 ✓ · PSM2 90%
+
+<span class="term-c">// COMPANY &amp; UNIVERSITY</span>
+  [01] <span class="term-c">Blind Test System</span>          Django · Top Glove (deployed)
+  [02] <span class="term-c">Biometric Attendance</span>       PHP/MySQL · Diploma FYP
+  [03] <span class="term-c">SVC Global Website</span>         HTML/CSS/JS · brand site
+  [04] <span class="term-c">Library Mgmt System</span>        C/C++ · UTeM Workshop I
+  [05] <span class="term-c">Wheel of Consequences</span>      Unity VR · UTeM Workshop II
+
+<span class="term-c">// GITHUB · PERSONAL</span>
+  [01] <span class="term-c">Universal Death Counter</span>    Python · PySide6 · MIT · shipped
+  [02] <span class="term-c">Content Creator Assets</span>     Dataset · procedural SVG · public
+  [03] <span class="term-c">Game Deals Scraper</span>         Flask · BeautifulSoup · Docker
+
+type <span class="term-y">cd projects</span> to view in page, or open <span class="term-y">projects.html</span>`);
     },
     skills: () => {
       termWrite(`<span class="term-y">LOADOUT:</span>
